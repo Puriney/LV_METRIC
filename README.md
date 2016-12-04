@@ -26,7 +26,7 @@ The center (seed) of LV can be either manually picked up or automatically inferr
 ![Imgur](http://i.imgur.com/uaUy23A.png)
 ![Imgur](http://i.imgur.com/kS0F26i.png)
 
-The average of "blood" region (brighter) is estimated (e.g. 180), so is the s.t.d.
+The average and s.t.d. of "blood" region (brighter) are estimated (e.g. 180 is mean).
 
 ## Lower-bound threshold-based region-growth to detect myocardial region
 
@@ -36,13 +36,13 @@ Still starting from the same seed, the program attempts to find threshold which 
 
 In this example, the ratio between blood mean and threshold has a spke value of 3.0, which further approximately suggests the average intensity of peripheral myocardial region, e.g. 180/3.0=60.
 
-The inferred mycardial region is shown as:
+The inferred mycardial region is shown as figure below and the s.t.d. is calculated.
 
 ![Imgur](http://i.imgur.com/0Ckgi9V.png)
 
 ## Content analysis of LV
 
-The intensity distribution of region surrounded by mycardial line is:
+The intensity distribution of region surrounded by above mycardial line is:
 
 ![Imgur](http://i.imgur.com/jSCxySp.png)
 
