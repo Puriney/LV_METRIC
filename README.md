@@ -9,7 +9,7 @@ My Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Int
 
 The LV of input image will be identified automatically.
 
-![Imgur](http://i.imgur.com/fSVIC3K.png)
+![Imgur](http://i.imgur.com/fSVIC3K.png?1)
 
 # Processing
 
