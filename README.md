@@ -1,7 +1,55 @@
 # LV_METRIC
-My Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Intravoxel Computation (LV-METRIC) developed by Yi Wang's lab. Paper source: [Left ventricle: automated segmentation by using myocardial effusion threshold reduction and intravoxel computation at MR imaging.](https://www.ncbi.nlm.nih.gov/pubmed/18710989)
+My Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Intravoxel Computation (LV-METRIC) developed by Yi Wang's lab at Cornell MRI Research lab.
+
+# Paper source
+
+[Left ventricle: automated segmentation by using myocardial effusion threshold reduction and intravoxel computation at MR imaging.](http://pubs.rsna.org/doi/pdf/10.1148/radiol.2482072016)<https://www.ncbi.nlm.nih.gov/pubmed/18710989>.
 
 # Results
+
+The LV of input image will be identified automatically.
+
+[Imgur](http://i.imgur.com/NBxA1Z9.png)
+
+
+[Imgur](http://i.imgur.com/VuOMtJL.png)
+
+# Processing
+
+## Seed selection
+
+The center (seed) of LV can be either manually picked up or automatically inferred by performing Hough Transform. Here Hough Transform was performed. Top 2 possible candidates are shown as dashed blue circles and only "best" circle is for generating seed (shown as red dot).
+
+[Imgur](http://i.imgur.com/N2y24Yo.png)
+
+## Edge-based region-growth to detect "blood" region
+
+[Imgur](http://i.imgur.com/uaUy23A.png)
+[Imgur](http://i.imgur.com/kS0F26i.png)
+
+The average of "blood" region (brighter) is estimated (e.g. 180), so is the s.t.d.
+
+## Lower-bound threshold-based region-growth to detect myocardial region
+
+[Imgur](http://i.imgur.com/hRXxvXA.png)
+
+Still starting from the same seed, the program attempts to find threshold which can identify the boundary between the peripheral myocardial region and inner blood region.
+
+In this example, the ratio between blood mean and threshold has a spke value of 3.0, which further approximately suggests the average intensity of peripheral myocardial region, e.g. 180/3.0=60.
+
+The inferred mycardial region is shown as:
+
+[Imgur](http://i.imgur.com/0Ckgi9V.png)
+
+## Content analysis of LV
+
+The intensity distribution of region surrounded by mycardial line is:
+
+[Imgur](http://i.imgur.com/jSCxySp.png)
+
+## Identify LV
+
+[Imgur](http://i.imgur.com/VuOMtJL.png)
 
 # How-to Run
 
