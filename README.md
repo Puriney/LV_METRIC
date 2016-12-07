@@ -1,4 +1,6 @@
 # LV_METRIC
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.193305.svg)](https://doi.org/10.5281/zenodo.193305)
+
 My Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Intravoxel Computation (LV-METRIC) developed by Yi Wang's lab at Cornell MRI Research lab.
 
 # Paper source
