@@ -1,7 +1,11 @@
 # LV_METRIC
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.193305.svg)](https://doi.org/10.5281/zenodo.193305)
 
-My Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Intravoxel Computation (LV-METRIC) developed by Yi Wang's lab at Cornell MRI Research lab.
+Matlab Implementation for LV Myocardial Effusion Threshold Reduction with Intravoxel Computation (LV-METRIC) developed by Yi Wang's lab at Cornell MRI Research lab.
+
+# Notice
+
+This is **not** the official code for reproducing the results of paper. Yun developed the codes by reading and following the description in the paper.
 
 # Paper source
 
@@ -19,7 +23,9 @@ The LV of input image will be identified automatically.
 
 ## Seed selection
 
-The center (seed) of LV can be either manually picked up or automatically inferred by performing Hough Transform. Here Hough Transform was performed. Top 2 possible candidates are shown as dashed blue circles and only "best" circle is for generating seed (shown as red dot).
+The center (seed) of LV can be either manually picked up or automatically inferred by performing Hough Transform. 
+
+Here Hough Transform was performed. Top 2 possible candidates are shown as dashed blue circles and only "best" circle is for generating seed (shown as red dot).
 
 ![Imgur](http://i.imgur.com/N2y24Yo.png)
 
@@ -28,7 +34,7 @@ The center (seed) of LV can be either manually picked up or automatically inferr
 ![Imgur](http://i.imgur.com/uaUy23A.png)
 ![Imgur](http://i.imgur.com/kS0F26i.png)
 
-The average and s.t.d. of "blood" region (brighter) are estimated (e.g. 180 is mean).
+The average and s.t.d. of "blood" region (brighter) intensities are calculated (e.g. 180 is mean).
 
 ## Lower-bound threshold-based region-growth to detect myocardial region
 
@@ -36,15 +42,15 @@ The average and s.t.d. of "blood" region (brighter) are estimated (e.g. 180 is m
 
 Still starting from the same seed, the program attempts to find threshold which can identify the boundary between the peripheral myocardial region and inner blood region.
 
-In this example, the ratio between blood mean and threshold has a spke value of 3.0, which further approximately suggests the average intensity of peripheral myocardial region, e.g. 180/3.0=60.
+In this example, the ratio between blood mean and threshold has a spike value of 3.0, which further approximately suggests the average intensity of peripheral myocardial region, e.g. 180/3.0=60.
 
-The inferred mycardial region is shown as figure below and the s.t.d. is calculated.
+The inferred myocardial region is shown as figure below and the s.t.d. is calculated.
 
 ![Imgur](http://i.imgur.com/0Ckgi9V.png)
 
 ## Content analysis of LV
 
-The intensity distribution of region surrounded by above mycardial line is:
+The intensity distribution of region surrounded by above myocardial line is:
 
 ![Imgur](http://i.imgur.com/jSCxySp.png)
 
@@ -60,8 +66,8 @@ Run `LV_METRIC.m` in Matlab. But first 1) modify the script to change the input 
 
 ## Set seed
 
-1. The built-in function `ginput(1)` of Matlab enables users to select seed point by GUI;
-2. The built-in function `imfindcircles` of Matlab performs circular Hough transform so that I can find circle-like ventricles, with hypothesis that LV in captured image is in circle-like shape. If none circles are found by Hough transform, my codes will force users to turn to the first method described as above.
+1. The built-in function `ginput(1)` of Matlab enables users select seed point by GUI;
+2. The built-in function `imfindcircles` of Matlab performs circular Hough transform so that circle-like ventricles can be found given the hypothesis that LV in captured image is in circle-like shape. If none circles are found by Hough transform, codes will force users to turn to the first method described as above.
 
 Note: only one seed is allowed to select. More than one seeds are not making sense in human anatomy.
 
